@@ -6,9 +6,11 @@
  *
 */
 
-window.addEventListener('load', () => { 
+'use strict';
 
-    tareas = JSON.parse(localStorage.getItem('tareas')) || [];
+let tareas = JSON.parse(localStorage.getItem('tareas')) || [];
+
+window.addEventListener('load', () => { 
 
     const formularioTareas = document.querySelector('#formularioTareas')
 
@@ -18,7 +20,7 @@ window.addEventListener('load', () => {
 
             const tarea = {
                 texto: event.target.elements.tarea.value,
-                categoria: event.target.elements.categoria.value,
+                categoria: event.target.elements.categoria.checked,
                 completada: false,
                 fecha: `${new Date().getDate()} - ${new Date().getMonth()+1} - ${new Date().getFullYear()} ${new Date().getHours()} : ${new Date().getMinutes()} : ${new Date().getSeconds()}`,
             }
@@ -90,8 +92,9 @@ function añadirTarea() {
         nuevaTarea.appendChild(textoTarea);
         nuevaTarea.appendChild(fecha);
 
-        if (tarea.categoria === 'importante') {
+        if (tarea.categoria === true) {
             nuevaTarea.appendChild(categoriaTarea);
+        } else if (tarea.categoria === false) {
         }
 
 
