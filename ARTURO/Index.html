@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Check List</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bayon&family=Inter&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>
+        SIMPLE <br />
+        CHECK <br />
+        LIST
+      </h1>
+    </header>
+
+    <main>
+      <section id="Write">
+        <form id="formulario"></form>
+        <input
+          type="text"
+          id="TaskItem"
+          name="Task"
+          placeholder="Escribe aquí..."
+          maxlength="140"
+        />
+        <input type="checkbox" id="switch" /><label id="NORMAL" for="switch"
+          >NORMAL</label
+        >
+        <input id="SENDB" type="submit" value="SEND" />
+      </section>
+      <section class="TaskList">
+        <div id="Tasks">
+          <div class="Task">
+            <div class="Content">
+              <input type="text" class="Text" value="Task Example" readonly />
+              <div class="TaskActions">
+                <button id="Edit">Edit</button>
+                <button id="Done">Done</button>
+                <button id="Delete">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="./js/Tasks.js"></script>
+  </body>
+</html>
