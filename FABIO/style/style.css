@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color:  #313154;
+    color: #FFF;
+}
+
+header, main {
+    width: 75%;
+    margin: 0 auto;
+}
+
+    header > h1 {
+        margin-top: 1rem;
+    }
+
+    main > section#escribirTareas {
+        margin-top: 1rem;
+    }
+
+    main > section#escribirTareas > form#formularioTareas > input#categoriaNormal {
+        display: none;
+    }
+
+    main > section#listaDeTareas {
+        margin-top: 1rem;
+    }
+
+        /* TAREA CREADA, ES A FUTURO */
+
+        main > section#listaDeTareas > div.tarea {
+            margin-top: 1rem;
+        }
+
+        main > section#listaDeTareas > div.hecha > h4.textoTarea {
+            text-decoration: line-through;
+        }
+
+        main > section#listaDeTareas > div.tarea > p.categoriaTarea {
+            text-decoration: underline;
+            color: lightcoral;
+        }
