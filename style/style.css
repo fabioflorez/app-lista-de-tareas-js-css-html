@@ -70,6 +70,7 @@ main {
 #Form {
   display: flex;
   margin: 1rem;
+  min-height: 3.4rem;
   border-radius: 10px;
   transition: transform 0.2s;
 }
@@ -82,8 +83,8 @@ main {
 #tarea {
   color: hsl(0, 0%, 100%);
   line-height: 100%;
-  width: 90%;
-  padding: 1.15rem;
+  width: 86%;
+  padding: 1rem;
   font-family: "Inter", sans-serif;
   user-select: none;
 }
@@ -91,13 +92,13 @@ main {
 button[type="submit"] {
   text-align: center;
   transition: 0.2s;
-  width: 6%;
+  width: 5%;
   color: #ffffff;
   border: solid 2px #fead37;
   background-color: #fead37;
   border-radius: 0px 10px 10px 0px;
   font-family: "Inter", sans-serif;
-  min-width: 6rem;
+  min-width: 5rem;
 }
 
 button[type="submit"]:hover {
@@ -120,7 +121,7 @@ button[type="reset"] {
   color: #ffffff;
   background: #fead37;
   margin-right: -1px;
-  min-width: 7rem;
+  min-width: 8rem;
 }
 
 #NORMAL::selection {
@@ -180,9 +181,14 @@ input:checked + #NORMAL {
   margin: 1rem;
   font-family: "Inter", sans-serif;
 }
-
+#SelectAllLabel {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  cursor: pointer;
+}
 #eliminarHechas,
-#SelectAll,
+#SelectAllLabel,
 #DeleteAll {
   margin: 10px;
   margin-right: 1rem;
@@ -196,9 +202,19 @@ input:checked + #NORMAL {
 }
 
 #eliminarHechas:hover,
-#SelectAll:hover,
 #DeleteAll:hover {
   color: #070e10;
   text-shadow: 0px 1px 1px #070e103b;
-  transform: translateY(-2%);
+}
+
+#SelectAll:checked + label {
+  color: #070e10;
+  font-weight: 550;
+}
+
+/* Acciones de limpieza */
+
+#SelectAll {
+  cursor: pointer;
+  display: none;
 }

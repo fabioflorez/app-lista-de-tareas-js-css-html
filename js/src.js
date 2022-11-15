@@ -122,10 +122,11 @@ function añadirTarea() {
 
     listaDeTareas.appendChild(nuevaTarea);
 
-    if (tarea.completada) {
+    /*  ¿No entiendo esto?
+   if (tarea.completada) {
       nuevaTarea.classList.add("hecha");
     }
-
+ */
     input.addEventListener("click", (event) => {
       tarea.completada = event.target.checked;
 
@@ -154,4 +155,20 @@ function añadirTarea() {
   });
 }
 
-// Select all Function //
+// Select All //
+
+var ALLcheckboxes = document.getElementsByClassName("checkbox");
+var SelectAll = document.getElementById("SelectAll");
+var Tareas = document.getElementsByClassName("Tareas");
+
+SelectAll.onclick = () => {
+  if (SelectAll.checked == true) {
+    for (let i = 0; i < ALLcheckboxes.length; i++) {
+      ALLcheckboxes[i].checked = true;
+    }
+  } else {
+    for (let i = 0; i < ALLcheckboxes.length; i++) {
+      ALLcheckboxes[i].checked = false;
+    }
+  }
+};
