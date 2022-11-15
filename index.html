@@ -24,9 +24,9 @@
 
     <main>
       <section id="escribirTareas">
-        <form id="formularioTareas">
+        <form id="formularioTareas" autocomplete="off">
           <div id="Form">
-          <input type="text" id="tarea" name="tarea" />
+          <input type="text" id="tarea" name="tarea" placeholder="Escribe aquí..." />
           <input
             type="checkbox"
             id="categoriaImportante"
@@ -34,13 +34,15 @@
             value="importante"
           />
           <label for="categoriaImportante" id="NORMAL">NORMAL</label>
-          <button type="submit">SEND</button>
+          <button id="SEND" type="submit">SEND</button>
         </form>
       </div>
       </section>
 
       <section id="ClearMenu">
-        <button type="reset" id="eliminarHechas">Eliminar tareas hechas</button>
+        <button type="button" id="SelectAll">Select All</button>
+        <button type="button" id="DeleteAll">Delete All</button>
+        <button type="reset" id="eliminarHechas">Delete Selected</button>
       </section>
 
       <section id="listaDeTareas">

@@ -1,145 +1,157 @@
+/*Animaciones */
 
-/* 
+const NORMALbutton = document.getElementById("NORMAL");
+
+NORMALbutton.addEventListener("click", () => {
+  NORMALbutton.classList.toggle("click");
+  setTimeout(() => {
+    NORMALbutton.classList.remove("click");
+  }, 300);
+});
+
+const SENDbutton = document.getElementById("SEND");
+
+SENDbutton.addEventListener("click", () => {
+  SENDbutton.classList.toggle("click");
+  setTimeout(() => {
+    SENDbutton.classList.remove("click");
+  }, 300);
+});
+
+NORMALbutton.onclick = function changetext() {
+  if (NORMALbutton.innerHTML === "NORMAL") {
+    NORMALbutton.innerHTML = "IMPORTANT";
+  } else {
+    NORMALbutton.innerHTML = "NORMAL";
+  }
+};
+
+/*
  *
  * window.addEventListener('load', () => {}) es para crear el archivo en local (Local Storage) de las tareas que se vayan creando
  * Cuando se carga/load/ completamente la página, el objeto window. tiene como referencia el objeto 'tareas', el formulario en HTML y el * evento creador de tareas
  *
-*/
+ */
 
-'use strict';
+("use strict");
 
-let tareas = JSON.parse(localStorage.getItem('tareas')) || [];
+let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
 
-window.addEventListener('load', () => { 
+window.addEventListener("load", () => {
+  const formularioTareas = document.querySelector("#formularioTareas");
 
-    const formularioTareas = document.querySelector('#formularioTareas')
+  formularioTareas.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-        formularioTareas.addEventListener('submit', (event) => {
+    const tarea = {
+      texto: event.target.elements.tarea.value,
+      categoria: event.target.elements.categoria.checked,
+      completada: false,
+      fecha: `${new Date().getDate()} - ${
+        new Date().getMonth() + 1
+      } - ${new Date().getFullYear()} ${new Date().getHours()} : ${new Date().getMinutes()} : ${new Date().getSeconds()}`,
+    };
 
-            event.preventDefault();
+    if (tarea.texto != "") {
+      tareas.push(tarea);
+      localStorage.setItem("tareas", JSON.stringify(tareas));
+    }
+    //Reseteo de Texto
+    event.target.tarea.value = "";
 
-            const tarea = {
-                texto: event.target.elements.tarea.value,
-                categoria: event.target.elements.categoria.checked,
-                completada: false,
-                fecha: `${new Date().getDate()} - ${new Date().getMonth()+1} - ${new Date().getFullYear()} ${new Date().getHours()} : ${new Date().getMinutes()} : ${new Date().getSeconds()}`,
-            }
+    añadirTarea();
+  });
 
-            if (tarea.texto != '' ) {
-                tareas.push(tarea);
-                localStorage.setItem('tareas', JSON.stringify(tareas));
-            }
-           
-            event.target.reset();
-
-            añadirTarea();
-        });
-
-     añadirTarea();
-
+  añadirTarea();
 });
 
-/* 
+/*
  *
  * function añadirTarea() para crear la functión que CREA las tareas en el HTML a partir del Local Storage
- * 
- * Por eso volvemos a utilizar las constantes ya creadas: 
- * 
+ *
+ * Por eso volvemos a utilizar las constantes ya creadas:
+ *
  *      - tareas (array de varios objetos 'tarea')
  *      - tarea (objeto)
  *
-*/
+ */
 
 function añadirTarea() {
+  const listaDeTareas = document.querySelector("#listaDeTareas");
+  listaDeTareas.innerHTML = "";
 
-    const listaDeTareas = document.querySelector('#listaDeTareas');
-    listaDeTareas.innerHTML = '';
+  tareas.forEach((tarea) => {
+    // <div class="tarea"></div>
+    const nuevaTarea = document.createElement("div");
+    nuevaTarea.classList.add("tarea");
 
-    tareas.forEach(tarea => {
+    // <label></label>
+    const label = document.createElement("label");
+    label.innerHTML = "Hecha";
 
-        // <div class="tarea"></div>
-        const nuevaTarea = document.createElement('div');
-        nuevaTarea.classList.add('tarea');
+    // <input class="checkbox"></input>
+    const input = document.createElement("input");
+    input.classList.add("checkbox");
+    input.type = "checkbox";
+    input.checked = tarea.completada;
 
-            // <label></label>
-            const label = document.createElement('label');
-            label.innerHTML = 'Hecha';
+    // <h4 class="textoTarea"></h4>
+    const textoTarea = document.createElement("h4");
+    textoTarea.classList.add("textoTarea");
+    textoTarea.innerHTML = tarea.texto;
 
-            // <input class="checkbox"></input>
-            const input = document.createElement('input');
-            input.classList.add('checkbox');
-            input.type = 'checkbox';
-            input.checked = tarea.completada;
+    // <p class="categoriaTarea"></p>
+    const categoriaTarea = document.createElement("p");
+    categoriaTarea.innerHTML = "Importante";
+    categoriaTarea.classList.add("categoriaTarea");
 
-            // <h4 class="textoTarea"></h4>
-            const textoTarea = document.createElement('h4');
-            textoTarea.classList.add('textoTarea');
-            textoTarea.innerHTML = tarea.texto;
+    // <h5 class="fecha"></h5>
+    const fecha = document.createElement("p");
+    fecha.innerHTML = tarea.fecha;
+    fecha.classList.add("fecha");
 
-            // <p class="categoriaTarea"></p>
-            const categoriaTarea = document.createElement('p');
-            categoriaTarea.innerHTML = 'Importante';
-            categoriaTarea.classList.add('categoriaTarea');
+    nuevaTarea.appendChild(label);
+    nuevaTarea.appendChild(input);
+    nuevaTarea.appendChild(textoTarea);
+    nuevaTarea.appendChild(fecha);
 
-            // <h5 class="fecha"></h5>
-            const fecha = document.createElement('p');
-            fecha.innerHTML = tarea.fecha ;
-            fecha.classList.add('fecha');
+    if (tarea.categoria === true) {
+      nuevaTarea.appendChild(categoriaTarea);
+    } else if (tarea.categoria === false) {
+    }
 
+    listaDeTareas.appendChild(nuevaTarea);
 
-        nuevaTarea.appendChild(label);
-        nuevaTarea.appendChild(input);
-        nuevaTarea.appendChild(textoTarea);
-        nuevaTarea.appendChild(fecha);
+    if (tarea.completada) {
+      nuevaTarea.classList.add("hecha");
+    }
 
-        if (tarea.categoria === true) {
-            nuevaTarea.appendChild(categoriaTarea);
-        } else if (tarea.categoria === false) {
-        }
+    input.addEventListener("click", (event) => {
+      tarea.completada = event.target.checked;
 
+      localStorage.setItem("tareas", JSON.stringify(tareas));
 
-        listaDeTareas.appendChild(nuevaTarea);
+      if (tarea.completada) {
+        nuevaTarea.classList.add("hecha");
+      } else {
+        nuevaTarea.classList.remove("hecha");
+      }
 
-
-
-        if (tarea.completada) {
-            nuevaTarea.classList.add('hecha')
-        };
-
-        input.addEventListener('click', (event) => {
-
-            tarea.completada = event.target.checked;
-
-            localStorage.setItem('tareas', JSON.stringify(tareas));
-
-            if (tarea.completada) {
-
-                nuevaTarea.classList.add('hecha')
-
-            } else {
-                nuevaTarea.classList.remove('hecha')
-            };
-
-        añadirTarea();
-
-        });
-
-        const eliminarHechas = document.querySelector('#eliminarHechas')
-
-        eliminarHechas.addEventListener('click', (event) => {
-
-            if (tarea.completada === true) {
-
-                tareas = tareas.filter(t => t !== tarea);
-
-                localStorage.setItem('tareas', JSON.stringify(tareas));
-
-            }
-
-            añadirTarea();
-
-        });
-
+      añadirTarea();
     });
 
+    const eliminarHechas = document.querySelector("#eliminarHechas");
+
+    eliminarHechas.addEventListener("click", (event) => {
+      if (tarea.completada === true) {
+        tareas = tareas.filter((t) => t !== tarea);
+
+        localStorage.setItem("tareas", JSON.stringify(tareas));
+      }
+
+      añadirTarea();
+    });
+  });
 }
+
+// Select all Function //

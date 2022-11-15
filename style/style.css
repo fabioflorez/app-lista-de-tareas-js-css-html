@@ -84,6 +84,7 @@ main {
   width: 90%;
   padding: 1.15rem;
   font-family: "Inter", sans-serif;
+  user-select: none;
 }
 
 button[type="submit"] {
@@ -129,4 +130,74 @@ button[type="reset"] {
   cursor: pointer;
   transform: scale(1.03);
   box-shadow: 0 0 5px 1px #fead37;
+}
+
+/* Animaciones de click */
+
+input:checked + #NORMAL {
+  text-decoration: underline;
+  background: #070e10;
+}
+
+.click {
+  animation-duration: 0.2s;
+  animation-name: click;
+}
+
+@keyframes click {
+  0% {
+    transform: scale(1.03);
+  }
+  50% {
+    transform: scale(0.95);
+    opacity: 83%;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Lista de Tareas */
+
+#ClearMenu {
+  display: flex;
+  justify-content: space-between;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  height: 5.2rem;
+  padding: 1rem;
+  margin: 1rem;
+  font-family: "Inter", sans-serif;
+  margin-bottom: -2rem;
+}
+
+#listaDeTareas {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  height: 200rem;
+  padding: 2rem;
+  margin: 1rem;
+  font-family: "Inter", sans-serif;
+}
+
+#eliminarHechas,
+#SelectAll,
+#DeleteAll {
+  margin: 10px;
+  margin-right: 1rem;
+  margin-top: -0.5rem;
+  border: none;
+  background: transparent;
+  font-family: "Inter", sans-serif;
+  color: #838383;
+  transition: 0.2s;
+  user-select: none;
+}
+
+#eliminarHechas:hover,
+#SelectAll:hover,
+#DeleteAll:hover {
+  color: #070e10;
+  text-shadow: 0px 1px 1px #070e103b;
+  transform: translateY(-2%);
 }
