@@ -1,0 +1,132 @@
+/* Reseteo de estilos */
+@import url(normalyze.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Generales */
+
+body {
+  background-color: #070e10;
+}
+
+body::selection {
+  background: #fead37;
+  color: #ffffff;
+}
+
+/* Textos y selecciones de textos */
+
+h1 {
+  all: unset;
+  display: flex;
+  margin-top: 3%;
+  margin-left: 11%;
+  margin-bottom: 2%;
+  color: #ffffff;
+  font-family: "Bayon", sans-serif;
+  font-size: 96px;
+  letter-spacing: 2px;
+  line-height: 0.8;
+  user-select: none;
+}
+
+/*Inputs*/
+
+button {
+  cursor: pointer;
+}
+
+input {
+  padding: 1rem;
+  font-family: "Inter", sans-serif;
+}
+
+#categoriaImportante {
+  opacity: 0%;
+  margin: 0;
+  background-color: #fff;
+}
+
+input[type="text"] {
+  all: unset;
+}
+
+input::selection {
+  background: #fead37;
+  color: #ffffff;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#Form {
+  display: flex;
+  margin: 1rem;
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+#Form:hover {
+  box-shadow: 0 0 13px 1px #d9d9d98f;
+  transform: scale(1.01);
+}
+
+#tarea {
+  color: hsl(0, 0%, 100%);
+  width: 90%;
+  padding: 1.15rem;
+  font-family: "Inter", sans-serif;
+}
+
+button[type="submit"] {
+  text-align: center;
+  transition: 0.2s;
+  width: 6%;
+  color: #ffffff;
+  border: solid 2px #fead37;
+  background-color: #fead37;
+  border-radius: 0px 10px 10px 0px;
+  font-family: "Inter", sans-serif;
+  min-width: 6rem;
+}
+
+button[type="submit"]:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+  box-shadow: 0 0 5px 1px #fead37;
+}
+
+button[type="reset"] {
+  cursor: pointer;
+}
+
+#NORMAL {
+  width: 9%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  transition: 0.2s;
+  color: #ffffff;
+  background: #fead37;
+  margin-right: -1px;
+  min-width: 7rem;
+}
+
+#NORMAL::selection {
+  user-select: none;
+}
+
+#NORMAL:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+  box-shadow: 0 0 5px 1px #fead37;
+}

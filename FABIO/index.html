@@ -1,59 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style/style.css" />
     <title>Lista de tareas</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <header>
-        <h1>Lista de tareas</h1>
+      <h1>Lista de tareas</h1>
     </header>
 
     <main>
+      <section id="escribirTareas">
+        <form id="formularioTareas">
+          <input type="text" id="tarea" name="tarea" />
 
-        <section id="escribirTareas">
+          <input
+            type="checkbox"
+            id="categoriaImportante"
+            name="categoria"
+            value="importante"
+          />
+          <label for="importante">Importante</label>
 
-            <form id="formularioTareas">
+          <button type="submit">Añadir tarea</button>
 
-                <input type="text" id="tarea" name="tarea" />
+          <button type="reset" id="eliminarHechas">
+            Eliminar tareas hechas
+          </button>
+        </form>
+      </section>
 
-                <input type="checkbox" id="categoriaImportante" name="categoria" value="importante"/>
-                <label for="importante">Importante</label>
-
-                <button type="submit">Añadir tarea</button>
-
-                <button type="reset" id="eliminarHechas">Eliminar tareas hechas</button>
-
-            </form>
-
-        </section>
-
-        <section id="listaDeTareas">
-
-            <!-- <div class="tarea">
+      <section id="listaDeTareas">
+        <!-- <div class="tarea">
                 <label for="checkbox">Hecha</label>
                 <input type="checkbox" name="checkbox" class="checkbox"  />
                 <h4 class="textoTarea">Ir al banco</h4>
                 <p class="categoriaTarea">Importante</p>
                 <h5 class="fecha">Fecha</h5>
             </div>
-
             <div class="tarea hecha">
                 <label for="checkbox">Hecha</label>
                 <input type="checkbox" name="checkbox" class="checkbox" />
                 <h4 class="textoTarea">Comprar el pan</h4>
                 <p class="categoriaTarea"></p>
             </div> -->
-
-        </section>
-
+      </section>
     </main>
 
     <script src="./js/src.js"></script>
-
-</body>
+  </body>
 </html>

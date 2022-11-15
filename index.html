@@ -1,14 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>Simple Check List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bayon&family=Inter&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>Título</h1>
-    <h2>Hola</h2>
-    <h3>HOLA</h3>
+    <header>
+      <h1>
+        SIMPLE <br />
+        CHECK <br />
+        LIST
+      </h1>
+    </header>
+
+    <main>
+      <section id="escribirTareas">
+        <form id="formularioTareas">
+          <div id="Form">
+          <input type="text" id="tarea" name="tarea" />
+          <input
+            type="checkbox"
+            id="categoriaImportante"
+            name="categoria"
+            value="importante"
+          />
+          <label for="categoriaImportante" id="NORMAL">NORMAL</label>
+          <button type="submit">SEND</button>
+        </form>
+      </div>
+      </section>
+
+      <section id="ClearMenu">
+        <button type="reset" id="eliminarHechas">Eliminar tareas hechas</button>
+      </section>
+
+      <section id="listaDeTareas">
+        <!-- <div class="tarea">
+                <label for="checkbox">Hecha</label>
+                <input type="checkbox" name="checkbox" class="checkbox"  />
+                <h4 class="textoTarea">Ir al banco</h4>
+                <p class="categoriaTarea">Importante</p>
+                <h5 class="fecha">Fecha</h5>
+            </div>
+
+            <div class="tarea hecha">
+                <label for="checkbox">Hecha</label>
+                <input type="checkbox" name="checkbox" class="checkbox" />
+                <h4 class="textoTarea">Comprar el pan</h4>
+                <p class="categoriaTarea"></p>
+            </div> -->
+      </section>
+    </main>
+
+    <script src="./js/src.js"></script>
   </body>
 </html>
