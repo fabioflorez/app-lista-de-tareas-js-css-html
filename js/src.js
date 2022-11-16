@@ -122,11 +122,10 @@ function añadirTarea() {
 
     listaDeTareas.appendChild(nuevaTarea);
 
-    /*  ¿No entiendo esto?
-   if (tarea.completada) {
+    if (tarea.completada) {
       nuevaTarea.classList.add("hecha");
     }
- */
+
     input.addEventListener("click", (event) => {
       tarea.completada = event.target.checked;
 
@@ -143,7 +142,12 @@ function añadirTarea() {
 
     const eliminarHechas = document.querySelector("#eliminarHechas");
 
+    //Reseteo del botón Select All cada vez que se realiza un borrado de tareas //
+
+    var SelectAllButtonReset = document.getElementById("SelectAll");
+
     eliminarHechas.addEventListener("click", (event) => {
+      SelectAllButtonReset.checked = false;
       if (tarea.completada === true) {
         tareas = tareas.filter((t) => t !== tarea);
 
@@ -153,22 +157,26 @@ function añadirTarea() {
       añadirTarea();
     });
   });
+
+  // Select All //
+
+  var ALLcheckboxes = document.getElementsByClassName("checkbox");
+  var SelectAll = document.getElementById("SelectAll");
+
+  SelectAll.onclick = (e) => {
+    if (SelectAll.checked == true) {
+      tareas.forEach((tarea) => {
+        tarea.completada = e.target.checked;
+      });
+
+      for (let i = 0; i < ALLcheckboxes.length; i++) {
+        ALLcheckboxes[i].checked = true;
+        console.log(tareas);
+      }
+    } else {
+      for (let i = 0; i < ALLcheckboxes.length; i++) {
+        ALLcheckboxes[i].checked = false;
+      }
+    }
+  };
 }
-
-// Select All //
-
-var ALLcheckboxes = document.getElementsByClassName("checkbox");
-var SelectAll = document.getElementById("SelectAll");
-var Tareas = document.getElementsByClassName("Tareas");
-
-SelectAll.onclick = () => {
-  if (SelectAll.checked == true) {
-    for (let i = 0; i < ALLcheckboxes.length; i++) {
-      ALLcheckboxes[i].checked = true;
-    }
-  } else {
-    for (let i = 0; i < ALLcheckboxes.length; i++) {
-      ALLcheckboxes[i].checked = false;
-    }
-  }
-};
