@@ -1,12 +1,22 @@
-/*Animaciones */
+("use strict");
+
+/*Animaciones de click */
 
 const NORMALbutton = document.getElementById("NORMAL");
+const CheckEvent = document.getElementById("categoriaImportante");
 
-NORMALbutton.addEventListener("click", () => {
+CheckEvent.addEventListener("change", function () {
   NORMALbutton.classList.toggle("click");
   setTimeout(() => {
     NORMALbutton.classList.remove("click");
   }, 300);
+  if (CheckEvent.checked === true) {
+    console.log("hola");
+    NORMALbutton.innerHTML = "IMPORTANT";
+  } else {
+    console.log("hola2");
+    NORMALbutton.innerHTML = "NORMAL";
+  }
 });
 
 const SENDbutton = document.getElementById("SEND");
@@ -18,22 +28,12 @@ SENDbutton.addEventListener("click", () => {
   }, 300);
 });
 
-NORMALbutton.onclick = function changetext() {
-  if (NORMALbutton.innerHTML === "NORMAL") {
-    NORMALbutton.innerHTML = "IMPORTANT";
-  } else {
-    NORMALbutton.innerHTML = "NORMAL";
-  }
-};
-
 /*
  *
  * window.addEventListener('load', () => {}) es para crear el archivo en local (Local Storage) de las tareas que se vayan creando
  * Cuando se carga/load/ completamente la página, el objeto window. tiene como referencia el objeto 'tareas', el formulario en HTML y el * evento creador de tareas
  *
  */
-
-("use strict");
 
 let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
 
@@ -139,7 +139,7 @@ function añadirTarea() {
 
       añadirTarea();
     });
-
+    // Delete Selected //
     const eliminarHechas = document.querySelector("#eliminarHechas");
     var SelectAllButtonReset = document.getElementById("SelectAll");
 
