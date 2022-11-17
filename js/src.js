@@ -141,42 +141,43 @@ function añadirTarea() {
     });
 
     const eliminarHechas = document.querySelector("#eliminarHechas");
-
-    //Reseteo del botón Select All cada vez que se realiza un borrado de tareas //
-
     var SelectAllButtonReset = document.getElementById("SelectAll");
 
     eliminarHechas.addEventListener("click", (event) => {
       SelectAllButtonReset.checked = false;
-      if (tarea.completada === true) {
-        tareas = tareas.filter((t) => t !== tarea);
-
-        localStorage.setItem("tareas", JSON.stringify(tareas));
-      }
-
-      añadirTarea();
-    });
-  });
-
-  // Select All //
-
-  var ALLcheckboxes = document.getElementsByClassName("checkbox");
-  var SelectAll = document.getElementById("SelectAll");
-
-  SelectAll.onclick = (e) => {
-    if (SelectAll.checked == true) {
       tareas.forEach((tarea) => {
-        tarea.completada = e.target.checked;
-      });
+        if (tarea.completada === true) {
+          console.log("Hola");
+          tareas = tareas.filter((t) => t !== tarea);
 
-      for (let i = 0; i < ALLcheckboxes.length; i++) {
-        ALLcheckboxes[i].checked = true;
-        console.log(tareas);
+          localStorage.setItem("tareas", JSON.stringify(tareas));
+          añadirTarea();
+        }
+      });
+    });
+
+    // Select All //
+
+    var ALLcheckboxes = document.getElementsByClassName("checkbox");
+    var SelectAll = document.getElementById("SelectAll");
+
+    SelectAll.onclick = (e) => {
+      if (SelectAll.checked == true) {
+        tareas.forEach((tarea) => {
+          tarea.completada = true;
+        });
+
+        for (let i = 0; i < ALLcheckboxes.length; i++) {
+          ALLcheckboxes[i].checked = true;
+        }
+      } else {
+        tareas.forEach((tarea) => {
+          tarea.completada = false;
+        });
+        for (let i = 0; i < ALLcheckboxes.length; i++) {
+          ALLcheckboxes[i].checked = false;
+        }
       }
-    } else {
-      for (let i = 0; i < ALLcheckboxes.length; i++) {
-        ALLcheckboxes[i].checked = false;
-      }
-    }
-  };
+    };
+  });
 }
