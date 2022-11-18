@@ -1,6 +1,6 @@
 ("use strict");
 
-/*Animaciones de click */
+/*Animaciones*/
 
 const NORMALbutton = document.getElementById("NORMAL");
 const CheckEvent = document.getElementById("categoriaImportante");
@@ -28,6 +28,27 @@ SENDbutton.addEventListener("click", () => {
   }, 300);
 });
 
+/* 
+// ANIMACIONES DEL FONDO (Crea un contrador en el evento de mouseover con en temporizador para evitar que la animación se corte y relizar al menos un ciclo completo 
+cada vez que se active) */
+
+const INPUTbutton = document.getElementById("tarea");
+const Orangething = document.getElementById("Orange");
+
+INPUTbutton.onmouseover = function () {
+  var delay = setTimeout(function () {
+    Orangething.classList.add("animation");
+    Orangething.classList.remove("animationinv");
+  }, 1200);
+  INPUTbutton.onmouseout = function () {
+    clearTimeout(delay);
+    setTimeout(function () {
+      Orangething.classList.add("animationinv");
+      Orangething.classList.remove("animation");
+    }, 1200);
+  };
+};
+
 /*
  *
  * window.addEventListener('load', () => {}) es para crear el archivo en local (Local Storage) de las tareas que se vayan creando
@@ -36,6 +57,7 @@ SENDbutton.addEventListener("click", () => {
  */
 
 let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+var SelectAllButtonReset = document.getElementById("SelectAll");
 
 window.addEventListener("load", () => {
   const formularioTareas = document.querySelector("#formularioTareas");
@@ -53,6 +75,7 @@ window.addEventListener("load", () => {
     };
 
     if (tarea.texto != "") {
+      SelectAllButtonReset.checked = false;
       tareas.push(tarea);
       localStorage.setItem("tareas", JSON.stringify(tareas));
     }
@@ -86,8 +109,9 @@ function añadirTarea() {
     nuevaTarea.classList.add("tarea");
 
     // <label></label>
-    const label = document.createElement("label");
+    /*     const label = document.createElement("label");
     label.innerHTML = "Hecha";
+    label.htmlFor = "checkboxid"; */
 
     // <input class="checkbox"></input>
     const input = document.createElement("input");
@@ -110,7 +134,7 @@ function añadirTarea() {
     fecha.innerHTML = tarea.fecha;
     fecha.classList.add("fecha");
 
-    nuevaTarea.appendChild(label);
+    /*     nuevaTarea.appendChild(label); */
     nuevaTarea.appendChild(input);
     nuevaTarea.appendChild(textoTarea);
     nuevaTarea.appendChild(fecha);
@@ -141,7 +165,6 @@ function añadirTarea() {
     });
     // Delete Selected //
     const eliminarHechas = document.querySelector("#eliminarHechas");
-    var SelectAllButtonReset = document.getElementById("SelectAll");
 
     eliminarHechas.addEventListener("click", (event) => {
       SelectAllButtonReset.checked = false;
