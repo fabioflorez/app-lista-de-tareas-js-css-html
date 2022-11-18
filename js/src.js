@@ -11,10 +11,8 @@ CheckEvent.addEventListener("change", function () {
     NORMALbutton.classList.remove("click");
   }, 300);
   if (CheckEvent.checked === true) {
-    console.log("hola");
     NORMALbutton.innerHTML = "IMPORTANT";
   } else {
-    console.log("hola2");
     NORMALbutton.innerHTML = "NORMAL";
   }
 });
@@ -29,8 +27,9 @@ SENDbutton.addEventListener("click", () => {
 });
 
 /* 
-// ANIMACIONES DEL FONDO (Crea un contrador en el evento de mouseover con en temporizador para evitar que la animación se corte y relizar al menos un ciclo completo 
-cada vez que se active) */
+// ANIMACIONES DEL FONDO (Crea un contrador en el evento de mouseover 
+con en temporizador para evitar que la animación se corte y relizar al 
+menos un ciclo completo cada vez que se active) */
 
 const INPUTbutton = document.getElementById("tarea");
 const Orangething = document.getElementById("Orange");
@@ -39,13 +38,13 @@ INPUTbutton.onmouseover = function () {
   var delay = setTimeout(function () {
     Orangething.classList.add("animation");
     Orangething.classList.remove("animationinv");
-  }, 1200);
+  }, 1100);
   INPUTbutton.onmouseout = function () {
     clearTimeout(delay);
     setTimeout(function () {
       Orangething.classList.add("animationinv");
       Orangething.classList.remove("animation");
-    }, 1200);
+    }, 1100);
   };
 };
 
@@ -107,6 +106,7 @@ function añadirTarea() {
     // <div class="tarea"></div>
     const nuevaTarea = document.createElement("div");
     nuevaTarea.classList.add("tarea");
+    nuevaTarea.classList.add("tarea");
 
     // <label></label>
     /*     const label = document.createElement("label");
@@ -130,7 +130,7 @@ function añadirTarea() {
     categoriaTarea.classList.add("categoriaTarea");
 
     // <h5 class="fecha"></h5>
-    const fecha = document.createElement("p");
+    const fecha = document.createElement("h5");
     fecha.innerHTML = tarea.fecha;
     fecha.classList.add("fecha");
 
@@ -170,7 +170,6 @@ function añadirTarea() {
       SelectAllButtonReset.checked = false;
       tareas.forEach((tarea) => {
         if (tarea.completada === true) {
-          console.log("Hola");
           tareas = tareas.filter((t) => t !== tarea);
 
           localStorage.setItem("tareas", JSON.stringify(tareas));
@@ -204,3 +203,16 @@ function añadirTarea() {
     };
   });
 }
+
+//Delete All //
+
+var DeleteAll = document.getElementById("DeleteAllLab");
+var Tareas = document.getElementById("listaDeTareas");
+
+console.log("DeleteAll");
+
+DeleteAll.onclick = (e) => {
+  while (Tareas.hasChildNodes()) {
+    Tareas.removeChild(Tareas.lastChild);
+  }
+};

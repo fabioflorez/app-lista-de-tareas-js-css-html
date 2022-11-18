@@ -112,7 +112,7 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   cursor: pointer;
-  transform: scale(1.02);
+  transform: scale(1.03);
   box-shadow: 0 0 2px 1px var(--coolwhite);
   backdrop-filter: blur(10px);
 }
@@ -140,7 +140,7 @@ button[type="reset"] {
 
 #NORMAL:hover {
   cursor: pointer;
-  transform: scale(1.02);
+  transform: scale(1.03);
   box-shadow: 0 0 2px 1px var(--coolwhite);
   backdrop-filter: blur(10px);
 }
@@ -162,7 +162,7 @@ input:checked + #NORMAL {
     transform: scale(1.03);
   }
   50% {
-    transform: scale(0.95);
+    transform: scale(0.96);
     opacity: 83%;
   }
   100% {
@@ -224,7 +224,6 @@ input:checked + #NORMAL {
   justify-content: center;
   align-self: center;
   cursor: pointer;
-  margin: 12px;
   margin-top: -1rem;
   margin-left: 3rem;
   border: none;
@@ -301,12 +300,12 @@ input:checked + #NORMAL {
   }
 
   .animation {
-    --speed: 1.2s;
+    --speed: 1.1s;
     animation: rotate var(--speed) ease-in-out forwards;
   }
 
   .animationinv {
-    --speed: 1.2s;
+    --speed: 1.1s;
     animation: rotateinv var(--speed) ease-in-out forwards;
   }
   .gradient {
