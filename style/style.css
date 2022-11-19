@@ -300,12 +300,12 @@ input:checked + #NORMAL {
   }
 
   .animation {
-    --speed: 1.1s;
+    --speed: 1s;
     animation: rotate var(--speed) ease-in-out forwards;
   }
 
   .animationinv {
-    --speed: 1.1s;
+    --speed: 1s;
     animation: rotateinv var(--speed) ease-in-out forwards;
   }
   .gradient {

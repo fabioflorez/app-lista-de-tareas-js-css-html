@@ -38,13 +38,13 @@ INPUTbutton.onmouseover = function () {
   var delay = setTimeout(function () {
     Orangething.classList.add("animation");
     Orangething.classList.remove("animationinv");
-  }, 1100);
+  }, 1000);
   INPUTbutton.onmouseout = function () {
     clearTimeout(delay);
     setTimeout(function () {
       Orangething.classList.add("animationinv");
       Orangething.classList.remove("animation");
-    }, 1100);
+    }, 1000);
   };
 };
 
