@@ -310,20 +310,19 @@ input:checked + #NORMAL {
     --speed: 1s;
     animation: rotateinv var(--speed) ease-in-out forwards;
   }
-  @supports (filter: blur) {
-    .gradient {
-      opacity: 0%;
-      --size: 200px;
-      width: var(--size);
-      height: var(--size);
-      background: var(--coolorange);
-      border-radius: 20rem;
-      position: absolute;
-      top: 16.7rem;
-      left: 10rem;
-      z-index: -90;
-      filter: blur(calc(var(--size) / 5));
-    }
+  /*   @supports (filter: blur(calc(var(--size) / 5))) {} */
+  .gradient {
+    opacity: 0%;
+    --size: 200px;
+    width: var(--size);
+    height: var(--size);
+    background: var(--coolorange);
+    border-radius: 20rem;
+    position: absolute;
+    top: 16.7rem;
+    left: 10rem;
+    z-index: -90;
+    filter: blur(3rem);
   }
 
   .noise {
