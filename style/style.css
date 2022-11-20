@@ -321,7 +321,6 @@ input:checked + #NORMAL {
     top: 16.7rem;
     left: 10rem;
     z-index: -90;
-    filter: blur(calc(var(--size) / 5));
   }
 
   .noise {
