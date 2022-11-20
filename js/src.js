@@ -76,6 +76,7 @@ window.addEventListener("load", () => {
     if (tarea.texto != "") {
       SelectAllButtonReset.checked = false;
       tareas.push(tarea);
+
       localStorage.setItem("tareas", JSON.stringify(tareas));
     }
     //Reseteo de Texto
@@ -109,9 +110,9 @@ function añadirTarea() {
     nuevaTarea.classList.add("tarea");
 
     // <label></label>
-    /*     const label = document.createElement("label");
+    const label = document.createElement("label");
     label.innerHTML = "Hecha";
-    label.htmlFor = "checkboxid"; */
+    label.htmlFor = "checkboxid";
 
     // <input class="checkbox"></input>
     const input = document.createElement("input");
@@ -201,18 +202,26 @@ function añadirTarea() {
         }
       }
     };
+
+    //Delete All //
+
+    var DeleteAll = document.getElementById("DeleteAllLab");
+    var ALLTareas = document.getElementById("listaDeTareas");
+
+    DeleteAll.onclick = (e) => {
+      localStorage.clear();
+      tareas = [];
+      while (ALLTareas.hasChildNodes()) {
+        ALLTareas.removeChild(ALLTareas.lastChild);
+      }
+    };
+
+    /*     DeleteAll.onclick = (e) => {
+      while (Tareas.hasChildNodes()) {
+        tareas = tareas.filter((t) => t !== tarea);
+
+        localStorage.setItem("tareas", JSON.stringify(tareas));
+      }
+    }; */
   });
 }
-
-//Delete All //
-
-var DeleteAll = document.getElementById("DeleteAllLab");
-var Tareas = document.getElementById("listaDeTareas");
-
-console.log("DeleteAll");
-
-DeleteAll.onclick = (e) => {
-  while (Tareas.hasChildNodes()) {
-    Tareas.removeChild(Tareas.lastChild);
-  }
-};
