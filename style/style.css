@@ -278,61 +278,65 @@ input:checked + #NORMAL {
 
 /* Background */
 
-@media (min-width: 1366px) {
-  @keyframes rotate {
-    0% {
+@supports (filter: blur();
+) {
+  @media (min-width: 1366px) {
+    @keyframes rotate {
+      0% {
+        opacity: 0%;
+        transform: scale(0.5);
+      }
+      100% {
+        opacity: 100%;
+        transform: scale(5);
+      }
+    }
+
+    @keyframes rotateinv {
+      0% {
+        opacity: 100%;
+        transform: scale(5);
+      }
+      100% {
+        opacity: 0%;
+        transform: scale(0.5);
+      }
+    }
+
+    .animation {
+      --speed: 1s;
+      animation: rotate var(--speed) ease-in-out forwards;
+    }
+
+    .animationinv {
+      --speed: 1s;
+      animation: rotateinv var(--speed) ease-in-out forwards;
+    }
+    .gradient {
       opacity: 0%;
-      transform: scale(0.5);
+      --size: 200px;
+      width: var(--size);
+      height: var(--size);
+      background: var(--coolorange);
+      border-radius: 20rem;
+      position: absolute;
+      top: 16.7rem;
+      left: 10rem;
+      z-index: -90;
+      filter: blur(calc(var(--size) / 5));
     }
-    100% {
-      opacity: 100%;
-      transform: scale(5);
+
+    .noise {
+      mix-blend-mode: multiply;
+      opacity: 60%;
+      background-image: url(./Noise.svg);
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      filter: brightness(80%) contrast(140%);
     }
-  }
-
-  @keyframes rotateinv {
-    0% {
-      opacity: 100%;
-      transform: scale(5);
-    }
-    100% {
-      opacity: 0%;
-      transform: scale(0.5);
-    }
-  }
-
-  .animation {
-    --speed: 1s;
-    animation: rotate var(--speed) ease-in-out forwards;
-  }
-
-  .animationinv {
-    --speed: 1s;
-    animation: rotateinv var(--speed) ease-in-out forwards;
-  }
-  .gradient {
-    opacity: 0%;
-    --size: 200px;
-    width: var(--size);
-    height: var(--size);
-    background: var(--coolorange);
-    border-radius: 20rem;
-    position: absolute;
-    top: 16.7rem;
-    left: 10rem;
-    z-index: -90;
-  }
-
-  .noise {
-    mix-blend-mode: multiply;
-    opacity: 60%;
-    background-image: url(./Noise.svg);
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    filter: brightness(80%) contrast(140%);
   }
 }
