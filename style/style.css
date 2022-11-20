@@ -278,40 +278,39 @@ input:checked + #NORMAL {
 
 /* Background */
 
-@supports (filter: blur();
-) {
-  @media (min-width: 1366px) {
-    @keyframes rotate {
-      0% {
-        opacity: 0%;
-        transform: scale(0.5);
-      }
-      100% {
-        opacity: 100%;
-        transform: scale(5);
-      }
+@media (min-width: 1366px) {
+  @keyframes rotate {
+    0% {
+      opacity: 0%;
+      transform: scale(0.5);
     }
+    100% {
+      opacity: 100%;
+      transform: scale(5);
+    }
+  }
 
-    @keyframes rotateinv {
-      0% {
-        opacity: 100%;
-        transform: scale(5);
-      }
-      100% {
-        opacity: 0%;
-        transform: scale(0.5);
-      }
+  @keyframes rotateinv {
+    0% {
+      opacity: 100%;
+      transform: scale(5);
     }
+    100% {
+      opacity: 0%;
+      transform: scale(0.5);
+    }
+  }
 
-    .animation {
-      --speed: 1s;
-      animation: rotate var(--speed) ease-in-out forwards;
-    }
+  .animation {
+    --speed: 1s;
+    animation: rotate var(--speed) ease-in-out forwards;
+  }
 
-    .animationinv {
-      --speed: 1s;
-      animation: rotateinv var(--speed) ease-in-out forwards;
-    }
+  .animationinv {
+    --speed: 1s;
+    animation: rotateinv var(--speed) ease-in-out forwards;
+  }
+  @supports (filter: blur) {
     .gradient {
       opacity: 0%;
       --size: 200px;
@@ -325,18 +324,18 @@ input:checked + #NORMAL {
       z-index: -90;
       filter: blur(calc(var(--size) / 5));
     }
+  }
 
-    .noise {
-      mix-blend-mode: multiply;
-      opacity: 60%;
-      background-image: url(./Noise.svg);
-      height: 100%;
-      width: 100%;
-      position: fixed;
-      z-index: -1;
-      top: 0;
-      left: 0;
-      filter: brightness(80%) contrast(140%);
-    }
+  .noise {
+    mix-blend-mode: multiply;
+    opacity: 60%;
+    background-image: url(./Noise.svg);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    filter: brightness(80%) contrast(140%);
   }
 }
