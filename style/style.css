@@ -223,6 +223,7 @@ input:checked + #NORMAL {
 
 .tarea > h4 {
   flex-grow: 2;
+  min-height: 1.3rem;
 }
 
 .hecha > h4 {
