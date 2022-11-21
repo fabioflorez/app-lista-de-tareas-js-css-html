@@ -1,6 +1,8 @@
 /* Reseteo de estilos */
 @import url(normalyze.css);
 
+/* GENERALES */
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +14,7 @@
   --coolblack: #070e10;
 }
 
-/* Generales */
+/* GENERALES: BODY */
 
 body {
   background-color: var(--coolblack);
@@ -24,7 +26,7 @@ body::selection {
   color: #ffffff;
 }
 
-/* Textos */
+/* GENERALES: TEXTOS */
 
 h1 {
   all: unset;
@@ -40,7 +42,7 @@ h1 {
   user-select: none;
 }
 
-/*Inputs del Form*/
+/* GENERALES: INPUTS */
 
 button {
   cursor: pointer;
@@ -49,12 +51,6 @@ button {
 input {
   padding: 1rem;
   font-family: "Inter", sans-serif;
-}
-
-#categoriaImportante {
-  opacity: 0%;
-  margin: 0;
-  background-color: #fff;
 }
 
 input[type="text"] {
@@ -70,12 +66,23 @@ input::selection {
   color: var(--coolblack);
 }
 
+#categoriaImportante {
+  opacity: 0%;
+  margin: 0;
+  background-color: #fff;
+}
+
+
+/* MAIN */
+
 main {
   display: flex;
   flex-direction: column;
   width: 80%;
   margin: 0 auto;
 }
+
+/* FORM */
 
 #Form {
   display: flex;
@@ -91,14 +98,14 @@ main {
   transform: scale(1.01);
 }
 
-#tarea {
-  color: hsl(0, 0%, 100%);
-  line-height: 100%;
-  width: 86%;
-  padding: 1rem;
-  font-family: "Inter", sans-serif;
-  user-select: none;
-}
+  #tarea {
+    color: hsl(0, 0%, 100%);
+    line-height: 100%;
+    width: 86%;
+    padding: 1rem;
+    font-family: "Inter", sans-serif;
+    user-select: none;
+  }
 
 button[type="submit"] {
   text-align: center;
@@ -137,10 +144,6 @@ button[type="reset"] {
   z-index: -1;
 }
 
-#categoriaImportante {
-  display: none;
-}
-
 #NORMAL::selection {
   user-select: none;
 }
@@ -154,7 +157,11 @@ button[type="reset"] {
   backdrop-filter: blur(10px);
 }
 
-/* Animaciones de click */
+#categoriaImportante {
+  display: none;
+}
+
+/* ANIMACIONES DEL CLICK */
 
 input:checked + #NORMAL {
   color: var(--coolorange);
@@ -179,112 +186,7 @@ input:checked + #NORMAL {
   }
 }
 
-/* Lista de Tareas */
-
-.tarea {
-  display: flex;
-  margin: 1rem;
-  transition: 0.2s;
-  background-color: var(--coolgrey);
-  color: #fff;
-  padding: 1rem;
-  border-radius: 1rem;
-}
-
-.ImpTarea {
-  background-color: var(--coolorange);
-}
-
-.hecha {
-  animation: opacity 0.2s forwards;
-  transform: translateY(-3%) translateX(1%);
-  box-shadow: -4px 4px 4px rgba(59, 59, 59, 0.308);
-}
-
-@keyframes opacity {
-  0% {
-    text-decoration: none;
-    opacity: 100%;
-  }
-  100% {
-    opacity: 77%;
-  }
-}
-
-.tarea:hover {
-  transform: translateY(-2%) translateX(-0.1%);
-  box-shadow: -4px 4px 4px rgba(59, 59, 59, 0.308);
-}
-
-.tarea > .textoTarea {
-  margin: 0.5rem;
-  overflow: hidden;
-}
-
-.tarea > h4 {
-  flex-grow: 2;
-  min-height: 1.3rem;
-}
-
-.hecha > h4 {
-  animation: line 0.2s forwards;
-}
-
-@keyframes line {
-  0% {
-    text-decoration: none;
-    opacity: 100%;
-  }
-  100% {
-    text-decoration: line-through;
-    text-decoration-thickness: 3px;
-    opacity: 77%;
-  }
-}
-
-.tarea > h5 {
-  align-self: center;
-  min-width: 5.5rem;
-}
-
-.tarea > input.checkbox,
-.tareahecha > input.checkbox {
-  /* REST ESTILOS POR DEFECTO DE LOS NAVEGADORES */
-
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-
-  cursor: pointer;
-
-  align-self: center;
-
-  min-width: 20px;
-  min-height: 20px;
-
-  max-height: 20px;
-  max-width: 20px;
-
-  border: 3px solid white;
-  border-radius: 2rem;
-}
-
-.tarea > input.checkbox:checked,
-.tareahecha > input.checkbox:checked {
-  background: white;
-}
-
-#listaDeTareas {
-  background-color: var(--coolwhite);
-  border-radius: 10px;
-  min-height: 25rem;
-  padding: 2rem;
-  margin: 1rem;
-  font-family: "Inter", sans-serif;
-}
-
-/* Acciones de limpieza */
+/* SECTION: CLEAR MENU */
 
 #ClearMenu {
   display: flex;
@@ -348,7 +250,112 @@ input:checked + #NORMAL {
   display: none;
 }
 
-/* Background */
+
+
+
+/* SECTION: LISTA DE TAREAS */
+
+.tarea {
+  display: flex;
+  margin: 1rem;
+  transition: 0.2s;
+  background-color: var(--coolgrey);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.ImpTarea {
+  background-color: var(--coolorange);
+}
+
+.hecha {
+  animation: opacity 0.2s forwards;
+  transform: translateY(-3%) translateX(1%);
+  box-shadow: -4px 4px 4px rgba(59, 59, 59, 0.308);
+}
+
+@keyframes opacity {
+  0% {
+    text-decoration: none;
+    opacity: 100%;
+  }
+  100% {
+    opacity: 77%;
+  }
+}
+
+.tarea:hover {
+  transform: translateY(-2%) translateX(-0.1%);
+  box-shadow: -4px 4px 4px rgba(59, 59, 59, 0.308);
+}
+
+  .tarea > .textoTarea {
+    margin: 0.5rem;
+    overflow: hidden;
+  }
+
+  .tarea > h4 {
+    flex-grow: 2;
+    min-height: 1.3rem;
+  }
+
+  .hecha > h4 {
+    animation: line 0.2s forwards;
+  }
+
+  @keyframes line {
+    0% {
+      text-decoration: none;
+      opacity: 100%;
+    }
+    100% {
+      text-decoration: line-through;
+      text-decoration-thickness: 3px;
+      opacity: 77%;
+    }
+  }
+
+  .tarea > h5 {
+    align-self: center;
+    min-width: 5.5rem;
+  }
+
+  .tarea > input.checkbox,
+  .tareahecha > input.checkbox {
+    /* REST ESTILOS POR DEFECTO DE LOS NAVEGADORES */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    align-self: center;
+    min-width: 20px;
+    min-height: 20px;
+    max-height: 20px;
+    max-width: 20px;
+    border: 3px solid white;
+    border-radius: 2rem;
+  }
+
+  .tarea > input.checkbox:checked,
+  .tareahecha > input.checkbox:checked {
+    background: white;
+  }
+
+#listaDeTareas {
+  background-color: var(--coolwhite);
+  border-radius: 10px;
+  min-height: 25rem;
+  padding: 2rem;
+  margin: 1rem;
+  font-family: "Inter", sans-serif;
+}
+
+
+
+
+/* BACKGROUND */
 
 @supports (filter: blur()) {
   @media (min-width: 1366px) and (max-width: 1920px) {

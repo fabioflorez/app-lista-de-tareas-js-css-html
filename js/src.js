@@ -1,6 +1,12 @@
 ("use strict");
 
-/*Animaciones*/
+/**
+ * 
+ * 
+ * ANIMACIONES
+ * 
+ * 
+ */
 
 const NORMALbutton = document.getElementById("NORMAL");
 const CheckEvent = document.getElementById("categoriaImportante");
@@ -26,10 +32,16 @@ SENDbutton.addEventListener("click", () => {
   }, 300);
 });
 
-/* 
-// ANIMACIONES DEL FONDO (Crea un contrador en el evento de mouseover 
-con en temporizador para evitar que la animación se corte y relizar al 
-menos un ciclo completo cada vez que se active) */
+/**
+ * 
+ * 
+ * ANIMACIONES DEL FONDO
+ * 
+ * (Crea un contrador en el evento de mouseover con en temporizador para evitar que la animación se corte y relizar al menos un ciclo completo cada vez que se active
+ * 
+ * 
+ */
+
 
 const INPUTbutton = document.getElementById("tarea");
 const Orangething = document.getElementById("Orange");
@@ -48,11 +60,15 @@ INPUTbutton.onmouseover = function () {
   };
 };
 
-/*
- *
- * window.addEventListener('load', () => {}) es para crear el archivo en local (Local Storage) de las tareas que se vayan creando
- * Cuando se carga/load/ completamente la página, el objeto window. tiene como referencia el objeto 'tareas', el formulario en HTML y el * evento creador de tareas
- *
+
+
+
+/**
+ * 
+ * 
+ * FUNCIONALIDAD CREACIÓN DE TAREAS Y ELIMINACIÓN
+ * 
+ * 
  */
 
 let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
@@ -88,16 +104,8 @@ window.addEventListener("load", () => {
   añadirTarea();
 });
 
-/*
- *
- * function añadirTarea() para crear la functión que CREA las tareas en el HTML a partir del Local Storage
- *
- * Por eso volvemos a utilizar las constantes ya creadas:
- *
- *      - tareas (array de varios objetos 'tarea')
- *      - tarea (objeto)
- *
- */
+
+
 
 function añadirTarea() {
   const listaDeTareas = document.querySelector("#listaDeTareas");
@@ -151,7 +159,10 @@ function añadirTarea() {
       }
     });
 
-    // Delete Selected //
+
+
+    
+    // BORRAR SELECCIÓN //
 
     const eliminarHechas = document.querySelector("#eliminarHechas");
 
@@ -167,7 +178,10 @@ function añadirTarea() {
       });
     });
 
-    // Select All //
+
+
+
+    // SELECCIONAR TODAS //
 
     let ALLcheckboxes = document.getElementsByClassName("checkbox");
     let SelectAll = document.getElementById("SelectAll");
@@ -201,7 +215,10 @@ function añadirTarea() {
       }
     };
 
-    //Delete All //
+
+
+
+    // ELIMINAR TODAS //
 
     let DeleteAll = document.getElementById("DeleteAllLab");
     let ALLTareas = document.getElementById("listaDeTareas");
