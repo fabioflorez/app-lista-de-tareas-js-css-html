@@ -203,10 +203,11 @@ input:checked + #NORMAL {
 
 @keyframes opacity {
   0% {
+    text-decoration: none;
     opacity: 100%;
   }
   100% {
-    opacity: 75%;
+    opacity: 77%;
   }
 }
 
@@ -222,6 +223,22 @@ input:checked + #NORMAL {
 
 .tarea > h4 {
   flex-grow: 2;
+}
+
+.hecha > h4 {
+  animation: line 0.2s forwards;
+}
+
+@keyframes line {
+  0% {
+    text-decoration: none;
+    opacity: 100%;
+  }
+  100% {
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+    opacity: 77%;
+  }
 }
 
 .tarea > h5 {
