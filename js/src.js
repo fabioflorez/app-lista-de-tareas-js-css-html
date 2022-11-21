@@ -35,7 +35,7 @@ const INPUTbutton = document.getElementById("tarea");
 const Orangething = document.getElementById("Orange");
 
 INPUTbutton.onmouseover = function () {
-  var delay = setTimeout(function () {
+  let delay = setTimeout(function () {
     Orangething.classList.add("animation");
     Orangething.classList.remove("animationinv");
   }, 1000);
@@ -56,7 +56,7 @@ INPUTbutton.onmouseover = function () {
  */
 
 let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
-var SelectAllButtonReset = document.getElementById("SelectAll");
+let SelectAllButtonReset = document.getElementById("SelectAll");
 
 window.addEventListener("load", () => {
   const formularioTareas = document.querySelector("#formularioTareas");
@@ -180,11 +180,17 @@ function añadirTarea() {
 
     // Select All //
 
-    var ALLcheckboxes = document.getElementsByClassName("checkbox");
-    var SelectAll = document.getElementById("SelectAll");
+    let ALLcheckboxes = document.getElementsByClassName("checkbox");
+    let SelectAll = document.getElementById("SelectAll");
+    let ClaseTareas = document.getElementById("listaDeTareas").childNodes;
 
     SelectAll.onclick = (e) => {
       if (SelectAll.checked == true) {
+        for (let i = 0; i < ClaseTareas.length; i++) {
+          if (!ClaseTareas[i].classList.contains("hecha")) {
+            ClaseTareas[i].classList.add("hecha");
+          }
+        }
         tareas.forEach((tarea) => {
           tarea.completada = true;
         });
@@ -192,6 +198,11 @@ function añadirTarea() {
           ALLcheckboxes[i].checked = true;
         }
       } else {
+        for (let i = 0; i < ClaseTareas.length; i++) {
+          if (ClaseTareas[i].classList.contains("hecha")) {
+            ClaseTareas[i].classList.remove("hecha");
+          }
+        }
         tareas.forEach((tarea) => {
           tarea.completada = false;
         });
@@ -203,8 +214,8 @@ function añadirTarea() {
 
     //Delete All //
 
-    var DeleteAll = document.getElementById("DeleteAllLab");
-    var ALLTareas = document.getElementById("listaDeTareas");
+    let DeleteAll = document.getElementById("DeleteAllLab");
+    let ALLTareas = document.getElementById("listaDeTareas");
 
     DeleteAll.onclick = (e) => {
       localStorage.clear();
