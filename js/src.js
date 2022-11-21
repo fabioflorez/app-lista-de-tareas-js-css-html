@@ -70,7 +70,7 @@ window.addEventListener("load", () => {
       completada: false,
       fecha: `${new Date().getDate()} - ${
         new Date().getMonth() + 1
-      } - ${new Date().getFullYear()} ${new Date().getHours()} : ${new Date().getMinutes()} : ${new Date().getSeconds()}`,
+      } - ${new Date().getFullYear()}`,
     };
 
     if (tarea.texto != "") {
@@ -123,23 +123,16 @@ function añadirTarea() {
     textoTarea.classList.add("textoTarea");
     textoTarea.innerHTML = tarea.texto;
 
-    // <p class="categoriaTarea"></p>
-    const categoriaTarea = document.createElement("p");
-    categoriaTarea.innerHTML = "Importante";
-    categoriaTarea.classList.add("categoriaTarea");
-
     // <h5 class="fecha"></h5>
     const fecha = document.createElement("h5");
     fecha.innerHTML = tarea.fecha;
     fecha.classList.add("fecha");
 
     nuevaTarea.appendChild(input);
-    /*     nuevaTarea.appendChild(label); */
     nuevaTarea.appendChild(textoTarea);
     nuevaTarea.appendChild(fecha);
 
     if (tarea.categoria === true) {
-      nuevaTarea.appendChild(categoriaTarea);
       nuevaTarea.classList.add("ImpTarea");
     } else if (tarea.categoria === false) {
     }
