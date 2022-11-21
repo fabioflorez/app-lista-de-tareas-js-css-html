@@ -108,10 +108,6 @@ function añadirTarea() {
     const nuevaTarea = document.createElement("div");
     nuevaTarea.classList.add("tarea");
 
-    // <label></label>
-    /*     const label = document.createElement("label");
-    label.htmlFor = "done-task"; */
-
     // <input class="checkbox"></input>
     const input = document.createElement("input");
     input.classList.add("checkbox");

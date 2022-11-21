@@ -23,7 +23,8 @@ body::selection {
   background: #fead37;
   color: #ffffff;
 }
-/* Textos y selecciones de textos */
+
+/* Textos */
 
 h1 {
   all: unset;
@@ -180,15 +181,15 @@ input:checked + #NORMAL {
 
 /* Lista de Tareas */
 
-                  .tarea {
-                    display: flex;
-                    margin: 1rem;
-                    transition: 0.2s;
-                    background-color: var(--coolgrey);
-                    color: #fff;
-                    padding: 1rem;
-                    border-radius: 1rem;
-                  }
+.tarea {
+  display: flex;
+  margin: 1rem;
+  transition: 0.2s;
+  background-color: var(--coolgrey);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
+}
 
 .ImpTarea {
   background-color: var(--coolorange);
@@ -219,42 +220,42 @@ input:checked + #NORMAL {
   overflow: hidden;
 }
 
-                  .tarea > h4 {
-                    flex-grow: 2;
-                  }
+.tarea > h4 {
+  flex-grow: 2;
+}
 
-                  .tarea > h5 {
-                    align-self: center;
-                    min-width: 5.5rem;
+.tarea > h5 {
+  align-self: center;
+  min-width: 5.5rem;
+}
 
-                  }
+.tarea > input.checkbox,
+.tareahecha > input.checkbox {
+  /* REST ESTILOS POR DEFECTO DE LOS NAVEGADORES */
 
-                  .tarea > input.checkbox,
-                  .tareahecha > input.checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
 
-                    /* REST ESTILOS POR DEFECTO DE LOS NAVEGADORES */
+  cursor: pointer;
 
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
-                    -o-appearance: none;
-                    appearance: none;
+  align-self: center;
 
-                    align-self: center;
+  min-width: 20px;
+  min-height: 20px;
 
-                    min-width: 20px;
-                    min-height: 20px;
+  max-height: 20px;
+  max-width: 20px;
 
-                    max-height: 20px;
-                    max-width: 20px;
+  border: 3px solid white;
+  border-radius: 2rem;
+}
 
-                    border: 3px solid white;
-                    border-radius: 2rem;
-                  }
-
-                  .tarea > input.checkbox:checked,
-                  .tareahecha > input.checkbox:checked {
-                    background: white;
-                  }
+.tarea > input.checkbox:checked,
+.tareahecha > input.checkbox:checked {
+  background: white;
+}
 
 #listaDeTareas {
   background-color: var(--coolwhite);
