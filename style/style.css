@@ -312,6 +312,7 @@ input:checked + #NORMAL {
       animation: rotateinv var(--speed) ease-in-out forwards;
     }
     .gradient {
+      will-change: auto;
       opacity: 0%;
       --size: 220px;
       width: var(--size);
@@ -323,6 +324,7 @@ input:checked + #NORMAL {
       left: 10rem;
       z-index: -90;
       filter: blur(3rem);
+      overflow: hidden;
     }
 
     .noise {
