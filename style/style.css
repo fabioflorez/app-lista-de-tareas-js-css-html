@@ -5,9 +5,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
   --coolwhite: #fbfbfd;
+  --coolgrey: #2b3031;
   --coolorange: #fead37;
   --coolblue: #0071e3;
   --coolblack: #070e10;
@@ -62,7 +61,7 @@ input[type="text"] {
 }
 
 input[type="text"]::placeholder {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.822);
 }
 
 input::selection {
@@ -109,7 +108,7 @@ button[type="submit"] {
   background: transparent;
   border-radius: 0px 10px 10px 0px;
   font-family: "Inter", sans-serif;
-  min-width: 4rem;
+  min-width: 3.6rem;
 }
 
 button[type="submit"]:hover {
@@ -117,6 +116,7 @@ button[type="submit"]:hover {
   transform: scale(1.03);
   box-shadow: 0 0 2px 1px var(--coolwhite);
   backdrop-filter: blur(10px);
+  margin-left: 1px;
 }
 
 button[type="reset"] {
@@ -131,9 +131,13 @@ button[type="reset"] {
   font-family: "Inter", sans-serif;
   transition: transform box-shadow 0.2s;
   color: var(--coolwhite);
-  min-width: 7rem;
+  min-width: 6.8rem;
   border: 1px solid var(--coolwhite);
   z-index: -1;
+}
+
+#categoriaImportante {
+  display: none;
 }
 
 #NORMAL::selection {
@@ -144,6 +148,8 @@ button[type="reset"] {
   cursor: pointer;
   transform: scale(1.03);
   box-shadow: 0 0 2px 1px var(--coolwhite);
+  margin-right: 2px;
+  border: 1px solid var(--coolwhite);
   backdrop-filter: blur(10px);
 }
 
@@ -180,9 +186,29 @@ input:checked + #NORMAL {
   align-items: baseline;
   margin: 1rem;
   transition: 0.2s;
-  background-color: var(--coolorange);
+  background-color: var(--coolgrey);
+  color: #fff;
   padding: 1rem;
   border-radius: 1rem;
+}
+
+.ImpTarea {
+  background-color: var(--coolorange);
+}
+
+.hecha {
+  animation: opacity 0.2s forwards;
+  transform: translateY(-3%) translateX(1%);
+  box-shadow: -4px 4px 4px rgba(59, 59, 59, 0.308);
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 75%;
+  }
 }
 
 .tarea:hover {
@@ -192,22 +218,46 @@ input:checked + #NORMAL {
 
 .tarea > .textoTarea {
   margin: 0.5rem;
+  overflow: hidden;
 }
 
 .tarea > p {
   display: none;
 }
 
-#ClearMenu {
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--coolwhite);
-  border-radius: 10px;
-  height: 6.25rem;
-  padding: 1rem;
-  margin: 1rem;
-  font-family: "Inter", sans-serif;
-  margin-bottom: -2rem;
+.tarea > h4 {
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+.tarea > input.checkbox,
+.tareahecha > input.checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+
+  width: 20px;
+  height: 20px;
+
+  border: 3px solid white;
+  border-radius: 2rem;
+}
+
+.tarea > input.checkbox:checked,
+.tareahecha > input.checkbox:checked {
+  /*
+    Remove the default appearance.
+  */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+
+  width: 20px;
+  height: 20px;
+
+  background: white;
 }
 
 #listaDeTareas {
@@ -221,23 +271,34 @@ input:checked + #NORMAL {
 
 /* Acciones de limpieza */
 
-#SelectAllLabel {
+#ClearMenu {
   display: flex;
-  justify-content: center;
-  align-self: center;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--coolwhite);
+  border-radius: 10px;
+  height: 6.25rem;
+  margin: 1rem;
+  padding: 2rem;
+  padding-top: 1rem;
+  font-family: "Inter", sans-serif;
+  margin-bottom: -2rem;
+}
+
+@media (max-width: 420px) {
+  #ClearMenu {
+    font-size: 0.7rem;
+  }
+}
+
+#SelectAllLabel {
   cursor: pointer;
-  margin-top: -1rem;
-  margin-left: 3rem;
   border: none;
   background: transparent;
   font-family: "Inter", sans-serif;
   color: #838383;
   transition: 0.005s;
   user-select: none;
-}
-
-#eliminarHechasLab {
-  margin-right: 3rem;
 }
 
 #eliminarHechas,
@@ -247,11 +308,7 @@ input:checked + #NORMAL {
 
 #eliminarHechasLab,
 #DeleteAllLab {
-  display: flex;
-  justify-content: center;
-  align-self: center;
   cursor: pointer;
-  margin-top: -1rem;
   border: none;
   background: transparent;
   font-family: "Inter", sans-serif;
@@ -283,7 +340,7 @@ input:checked + #NORMAL {
     @keyframes rotate {
       0% {
         opacity: 0%;
-        transform: scale(0.5);
+        transform: scale(1);
       }
       100% {
         opacity: 100%;
@@ -298,7 +355,7 @@ input:checked + #NORMAL {
       }
       100% {
         opacity: 0%;
-        transform: scale(0.5);
+        transform: scale(1);
       }
     }
 
@@ -314,7 +371,7 @@ input:checked + #NORMAL {
     .gradient {
       will-change: auto;
       opacity: 0%;
-      --size: 220px;
+      --size: 200px;
       width: var(--size);
       height: var(--size);
       background: var(--coolorange);

@@ -107,12 +107,10 @@ function añadirTarea() {
     // <div class="tarea"></div>
     const nuevaTarea = document.createElement("div");
     nuevaTarea.classList.add("tarea");
-    nuevaTarea.classList.add("tarea");
 
     // <label></label>
-    const label = document.createElement("label");
-    label.innerHTML = "Hecha";
-    label.htmlFor = "checkboxid";
+    /*     const label = document.createElement("label");
+    label.htmlFor = "done-task"; */
 
     // <input class="checkbox"></input>
     const input = document.createElement("input");
@@ -135,13 +133,14 @@ function añadirTarea() {
     fecha.innerHTML = tarea.fecha;
     fecha.classList.add("fecha");
 
-    /*     nuevaTarea.appendChild(label); */
     nuevaTarea.appendChild(input);
+    /*     nuevaTarea.appendChild(label); */
     nuevaTarea.appendChild(textoTarea);
     nuevaTarea.appendChild(fecha);
 
     if (tarea.categoria === true) {
       nuevaTarea.appendChild(categoriaTarea);
+      nuevaTarea.classList.add("ImpTarea");
     } else if (tarea.categoria === false) {
     }
 
@@ -161,10 +160,10 @@ function añadirTarea() {
       } else {
         nuevaTarea.classList.remove("hecha");
       }
-
-      añadirTarea();
     });
+
     // Delete Selected //
+
     const eliminarHechas = document.querySelector("#eliminarHechas");
 
     eliminarHechas.addEventListener("click", (event) => {
@@ -189,7 +188,6 @@ function añadirTarea() {
         tareas.forEach((tarea) => {
           tarea.completada = true;
         });
-
         for (let i = 0; i < ALLcheckboxes.length; i++) {
           ALLcheckboxes[i].checked = true;
         }
@@ -215,13 +213,5 @@ function añadirTarea() {
         ALLTareas.removeChild(ALLTareas.lastChild);
       }
     };
-
-    /*     DeleteAll.onclick = (e) => {
-      while (Tareas.hasChildNodes()) {
-        tareas = tareas.filter((t) => t !== tarea);
-
-        localStorage.setItem("tareas", JSON.stringify(tareas));
-      }
-    }; */
   });
 }
