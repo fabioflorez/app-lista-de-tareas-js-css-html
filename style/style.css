@@ -72,7 +72,6 @@ input::selection {
   background-color: #fff;
 }
 
-
 /* MAIN */
 
 main {
@@ -98,14 +97,14 @@ main {
   transform: scale(1.01);
 }
 
-  #tarea {
-    color: hsl(0, 0%, 100%);
-    line-height: 100%;
-    width: 86%;
-    padding: 1rem;
-    font-family: "Inter", sans-serif;
-    user-select: none;
-  }
+#tarea {
+  color: hsl(0, 0%, 100%);
+  line-height: 100%;
+  width: 86%;
+  padding: 1rem;
+  font-family: "Inter", sans-serif;
+  user-select: none;
+}
 
 button[type="submit"] {
   text-align: center;
@@ -202,12 +201,6 @@ input:checked + #NORMAL {
   margin-bottom: -2rem;
 }
 
-@media (max-width: 420px) {
-  #ClearMenu {
-    font-size: 0.7rem;
-  }
-}
-
 #SelectAllLabel {
   cursor: pointer;
   border: none;
@@ -250,9 +243,6 @@ input:checked + #NORMAL {
   display: none;
 }
 
-
-
-
 /* SECTION: LISTA DE TAREAS */
 
 .tarea {
@@ -290,58 +280,59 @@ input:checked + #NORMAL {
   box-shadow: -4px 4px 4px rgba(59, 59, 59, 0.308);
 }
 
-  .tarea > .textoTarea {
-    margin: 0.5rem;
-    overflow: hidden;
-  }
+.tarea > .textoTarea {
+  margin: 0.5rem;
+  overflow: hidden;
+}
 
-  .tarea > h4 {
-    flex-grow: 2;
-    min-height: 1.3rem;
-  }
+.tarea > h4 {
+  flex-grow: 2;
+  min-height: 1.3rem;
+  overflow-wrap: break-word;
+}
 
-  .hecha > h4 {
-    animation: line 0.2s forwards;
-  }
+.hecha > h4 {
+  animation: line 0.2s forwards;
+}
 
-  @keyframes line {
-    0% {
-      text-decoration: none;
-      opacity: 100%;
-    }
-    100% {
-      text-decoration: line-through;
-      text-decoration-thickness: 3px;
-      opacity: 77%;
-    }
+@keyframes line {
+  0% {
+    text-decoration: none;
+    opacity: 100%;
   }
+  100% {
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+    opacity: 77%;
+  }
+}
 
-  .tarea > h5 {
-    align-self: center;
-    min-width: 5.5rem;
-  }
+.tarea > h5 {
+  align-self: center;
+  min-width: 5.5rem;
+}
 
-  .tarea > input.checkbox,
-  .tareahecha > input.checkbox {
-    /* REST ESTILOS POR DEFECTO DE LOS NAVEGADORES */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -o-appearance: none;
-    appearance: none;
-    cursor: pointer;
-    align-self: center;
-    min-width: 20px;
-    min-height: 20px;
-    max-height: 20px;
-    max-width: 20px;
-    border: 3px solid white;
-    border-radius: 2rem;
-  }
+.tarea > input.checkbox,
+.tareahecha > input.checkbox {
+  /* REST ESTILOS POR DEFECTO DE LOS NAVEGADORES */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  align-self: center;
+  min-width: 20px;
+  min-height: 20px;
+  max-height: 20px;
+  max-width: 20px;
+  border: 3px solid white;
+  border-radius: 2rem;
+}
 
-  .tarea > input.checkbox:checked,
-  .tareahecha > input.checkbox:checked {
-    background: white;
-  }
+.tarea > input.checkbox:checked,
+.tareahecha > input.checkbox:checked {
+  background: white;
+}
 
 #listaDeTareas {
   background-color: var(--coolwhite);
@@ -351,9 +342,6 @@ input:checked + #NORMAL {
   margin: 1rem;
   font-family: "Inter", sans-serif;
 }
-
-
-
 
 /* BACKGROUND */
 
@@ -418,5 +406,17 @@ input:checked + #NORMAL {
       left: 0;
       filter: brightness(80%) contrast(140%);
     }
+  }
+}
+
+/* Estilos para movil */
+
+@media (max-width: 420px) {
+  #ClearMenu {
+    font-size: 0.85rem;
+    padding: 1rem;
+  }
+  #listaDeTareas {
+    padding: 0rem;
   }
 }
